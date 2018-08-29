@@ -38,7 +38,7 @@
 
 - 有了MP4，先在MATLAB里 ```implay``` 一下。有时候录屏会录进去一些开始录屏或终止录屏的菜单按钮，所以要掐头去尾。不用编辑视频，找到可供OCR识别的帧数范围就行，在脚本里填好。脚本也是逐帧做循环处理的。
 
-![key区域识别](https://github.com/chouj/CountIngressKeys/blob/master/images/rectangledetected.jpg =200x)
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/rectangledetected.jpg" width="200"></img>
 
 - 每帧图像在OCR之前，先识别该帧图像里倒数第二大的矩形框（最大那个就是图像本身这个矩形），然后根据这个矩形框的长宽比判断是不是key图（如上）。问题来了，不同手机这个长宽比是不一样的。脚本里预设了iPhone 6和Moto G 2nd Gen的。欢迎补充。
 
@@ -48,7 +48,7 @@
 
 <img src="https://github.com/chouj/CountIngressKeys/blob/master/images/keynumberregion.jpg" width="200"></img>
 
-![Key Name Region](https://github.com/chouj/CountIngressKeys/blob/master/images/portalnameregion.jpg =200x)
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/portalnameregion.jpg" width="200"></img>
 
 - Tesseract OCR识别一次比较慢，外加一次读写。如果每帧都要OCR就太慢了，况且大部分时候前后相邻帧都是同一个画面。所以用前后相邻key图的坡名区域做互相关，互相关系数在0.75以上的认为是同一个坡名，不做OCR，跳到下一循环。
 - 坡key数量识别成功率有限，某些识别不出的场合，输出图像人肉判断后输入数字。
@@ -56,7 +56,7 @@
 - 如果循环处理完每一帧后，得到的坡名数组里相邻的两个坡名是一样的，就干掉一个，应该是在相关系数筛选那里漏网了。
 - 最后查找坡名数组里同名的坡，把对应的key数相加得到该坡的合计key数量。比如桶里有2条这个坡的key，仓库里有1条，所以相加得到总共有3条。
 
-![Key Counting Result Sample](https://github.com/chouj/CountIngressKeys/blob/master/images/CountingResultSample.png =200x)
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/CountingResultSample.png" width="200"></img>
 
 - 结果写去EXCEL文件，方便根据key数量排序神马的。
 
