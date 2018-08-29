@@ -46,7 +46,7 @@
 
 - 裁切出key图后，再切出上部的数量区域和下部的坡名区域分别 OCR。
 
-![Key Number Region](https://github.com/chouj/CountIngressKeys/blob/master/images/keynumberregion.jpg | width=200)
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/keynumberregion.jpg" width="200"></img>
 
 ![Key Name Region](https://github.com/chouj/CountIngressKeys/blob/master/images/portalnameregion.jpg =200x)
 
