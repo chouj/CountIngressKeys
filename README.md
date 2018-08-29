@@ -69,6 +69,8 @@
 
 放出这个用吃奶的劲儿编出来的0.2成品就是期待能被技术大佬打脸。
 
+神马？你说数得对不对？不管你信不信，我反正是信了！
+
 ## 致谢
 
 - [Detecting rectangle shape in an image](https://www.mathworks.com/matlabcentral/answers/35243-detecting-rectangle-shape-in-an-image)
