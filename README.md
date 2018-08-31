@@ -1,6 +1,6 @@
 # 懒得数key让电脑去数
 
-###### 用MATLAB读取扒拉Portal Key的录屏视频文件来数各Key的数量
+###### 用MATLAB读取扒拉Portal Key的录屏视频文件来数各坡Key的数量
 
 ## 前言
 
@@ -10,11 +10,11 @@
 - 卧槽，我怎么囤了这么多这个坡的key？！
 - 这是最后一把，……了……吗？
 
-一堆桶里扒拉着数key好痛苦。索性开个脑洞，交给电脑数去。不曾想，这不是脑洞是深坑啊。而且还忘记了马上就Prime了，哭丧脸。
+一堆桶里扒拉着数key找key好痛苦。索性开个脑洞，交给电脑数去。不曾想，这不是脑洞是深坑啊。而且还忘记了马上就Prime了，哭丧脸。
 
 ## 脑洞
 
-把扒拉key的操作录屏，视频文件喂给MATLAB，OCR识别完输出坡名和数量，打完收工！
+把扒拉key的操作录屏，视频文件喂给MATLAB，OCR识别完输出坡名和数量。打完收工！
 
 ## 别看脑洞这么骨感，其实深坑特别丰满
 
@@ -24,14 +24,19 @@
 
 #### 依赖
 
-- 脚本只在 WIN 下测试过。
-- MATLAB Computer Vision System Toolbox：用来调用```ocr```命令，识别英文、数字；
-- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki)：命令行式的OCR，需另装，配置好简繁字库，用来识别简繁中文。
+- 脚本只在 WIN 下测试过。其他系统按道理也可以。
+- MATLAB Computer Vision System Toolbox：用来调用该工具箱的```ocr```命令，识别英文、数字。其实换下面这个Tesseract OCR做识别也成，并不必须，但现在脚本里还是有用```ocr```。
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki)：命令行式的OCR，需另装，配置好简繁字库，用来识别简繁中文。装配过程可以[放狗搜](https://www.google.com/search?q=tesseract+%E9%85%8D%E7%BD%AE)，很多教程。
 
 #### 录屏
 
-- Inventory里的key，如果只有1把的话，是不会显示数量的，即没有“x1”；桶里的则会显示，而且在桶里点load，则会显示Inventory里的key，而且有“x1”。所以推荐录屏时不直接录Inventory里翻key的过程，而是找个桶，点load再录。当然，录Inventory里的也可以，脚本也能处理。
-- 翻key一定要从头翻到底，比如从左翻到右，或从右翻到左，翻快点都可以的。现在的脚本没考虑来回翻的情况，会数错。
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/InventoryKeyAndLoadKeyIntoCapsule.jpg" width="400"></img>
+
+- Inventory里的key，如果只有1把的话，是不会显示数量的，即没有“x1”；桶里的则会显示，而且在桶里点load，则会显示Inventory里的key，而且有“x1”（上图）。所以推荐录屏时不直接录Inventory里翻key的过程，而是找个桶，点load再录。当然，录Inventory里的也可以，脚本也能处理。
+
+![]()
+
+- 翻key一定要从头翻到底，比如从左翻到右，或从右翻到左，翻快点都可以的（如上）。现在的脚本没考虑来回翻的情况，会数错。
 - 一个桶翻完换另一个桶时的切换过程，没关系，要相信脚本能识别这个过程（看人品）。当然你也可以每个桶录一个，分别丢给脚本去数。
 
 #### 预设
@@ -58,7 +63,9 @@
 
 <img src="https://github.com/chouj/CountIngressKeys/blob/master/images/CountingResultSample.png" width="200"></img>
 
-- 结果写去EXCEL文件，方便根据key数量排序神马的。
+- 结果写去EXCEL文件，方便根据key数量排序神马的。输出的前两列是根据OCR识别顺序也就是录屏视频的时间顺序排列的坡名和数量，后两列则是根据坡名文字排序的。有后两列的好处是，有识别差错的时候，可以一眼发现同一个坡被识别成了俩坡名：
+
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/EXCELsample.png" width="300"></img>
 
 ### 已知问题
 
