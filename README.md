@@ -22,6 +22,11 @@
 
 ### 脚本逻辑和操作流程
 
+#### 文件说明
+
+- ```CountIngressKeys_V1.m``` 数Key脚本；
+- ```RectAspectRatio.m```     输出每帧图像中最大矩形框的高宽比，并绘图的函数。
+
 #### 依赖
 
 - 脚本只在 WIN 下测试过。其他系统按道理也可以。
@@ -34,20 +39,34 @@
 
 - Inventory里的key，如果只有1把的话，是不会显示数量的，即没有“x1”；桶里的则会显示，而且在桶里点load，则会显示Inventory里的key，而且有“x1”（上图）。所以推荐录屏时不直接录Inventory里翻key的过程，而是找个桶，点load再录。当然，录Inventory里的也可以，脚本也能处理。
 
-![]()
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/key-rolling.gif" width="300"></img>
 
 - 翻key一定要从头翻到底，比如从左翻到右，或从右翻到左，翻快点都可以的（如上）。现在的脚本没考虑来回翻的情况，会数错。
 - 一个桶翻完换另一个桶时的切换过程，没关系，要相信脚本能识别这个过程（看人品）。当然你也可以每个桶录一个，分别丢给脚本去数。
 
 #### 预设
 
-- 有了MP4，先在MATLAB里 ```implay``` 一下。有时候录屏会录进去一些开始录屏或终止录屏的菜单按钮，所以要掐头去尾。不用编辑视频，找到可供OCR识别的帧数范围就行，在脚本里填好。脚本也是逐帧做循环处理的。
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ImplayInterface.png" width="350"></img>
+
+- 有了MP4，先在MATLAB里 ```implay(文件路径)``` 一下（上图）。红色矩形框里是控制按钮，右下角是当前第几帧和总帧数。有时候录屏会录进去一些开始录屏或终止录屏的菜单按钮(下图)，所以要掐头去尾。不用编辑视频，找到可供OCR识别的帧数范围就行，在脚本里填好。脚本也是逐帧做循环处理的。
+
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ScreenRecordingProblem.gif" width="350"></img>
+
+- 每帧图像在OCR之前，先识别该帧图像里最大的矩形框。如果这帧图像是滑动key的视频里的一帧，这个最大矩形框就一定是可滚动的key图这部分（下图红色虚线）。
 
 <img src="https://github.com/chouj/CountIngressKeys/blob/master/images/rectangledetected.jpg" width="200"></img>
 
-- 每帧图像在OCR之前，先识别该帧图像里倒数第二大的矩形框（最大那个就是图像本身这个矩形），然后根据这个矩形框的长宽比判断是不是key图（如上）。问题来了，不同手机这个长宽比是不一样的。脚本里预设了iPhone 6和Moto G 2nd Gen的。欢迎补充。
+- 而且，该矩形框的高宽比浮动不大（下图），所以可根据这个矩形框的高宽比判断是不是key图。可以先运行一下```r=RectAspectRatio(文件路径);```输出高宽比的序列来看一下key图对应的高宽比大致为多少，然后在脚本```CountIngressKeys_V1.m```参数区域里填入上限和下限。从下图可以看出，桶界面和翻桶时所识别出来的最大矩形高宽比和桶里key图的高宽比差很远，这也是为什么从一个桶翻key切换另一个桶的过程可以被排除。不过，问题来了，不同手机这个高宽比是不一样的。脚本里预设了iPhone 6和Moto G 2nd Gen的。欢迎补充。
+
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/aspectratio-vs-frame.jpg" width="600"></img>
+
+- 下图即脚本```CountIngressKeys_V1.m```里的参数设置区域，改好运行脚本即可，人品好的话能一直run到底。
+
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/Parameters.png" width="500"></img>
 
 #### 运行
+
+脚本执行时不用管，这里只简单说下逻辑：
 
 - 裁切出key图后，再切出上部的数量区域和下部的坡名区域分别 OCR。
 
@@ -65,7 +84,7 @@
 
 - 结果写去EXCEL文件，方便根据key数量排序神马的。输出的前两列是根据OCR识别顺序也就是录屏视频的时间顺序排列的坡名和数量，后两列则是根据坡名文字排序的。有后两列的好处是，有识别差错的时候，可以一眼发现同一个坡被识别成了俩坡名：
 
-<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/EXCELsample.png" width="300"></img>
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/EXCELsample.png" width="400"></img>
 
 ### 已知问题
 
