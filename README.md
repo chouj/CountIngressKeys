@@ -39,18 +39,18 @@
 
 - Inventory里的key，如果只有1把的话，是不会显示数量的，即没有“x1”；桶里的则会显示，而且在桶里点load，则会显示Inventory里的key，而且有“x1”（上图）。所以推荐录屏时不直接录Inventory里翻key的过程，而是找个桶，点load再录。当然，录Inventory里的也可以，脚本也能处理。
 
-<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/key-rolling.gif" width="300"></img>
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/key-rolling.gif" width="200"></img>
 
 - 翻key一定要从头翻到底，比如从左翻到右，或从右翻到左，翻快点都可以的（如上）。现在的脚本没考虑来回翻的情况，会数错。
 - 一个桶翻完换另一个桶时的切换过程，没关系，要相信脚本能识别这个过程（看人品）。当然你也可以每个桶录一个，分别丢给脚本去数。
 
 #### 预设
 
-<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ImplayInterface.png" width="350"></img>
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ImplayInterface.png" width="200"></img>
 
 - 有了MP4，先在MATLAB里 ```implay(文件路径)``` 一下（上图）。红色矩形框里是控制按钮，右下角是当前第几帧和总帧数。有时候录屏会录进去一些开始录屏或终止录屏的菜单按钮(下图)，所以要掐头去尾。不用编辑视频，找到可供OCR识别的帧数范围就行，在脚本里填好。脚本也是逐帧做循环处理的。
 
-<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ScreenRecordingProblem.gif" width="350"></img>
+<img src="https://github.com/chouj/CountIngressKeys/blob/master/images/ScreenRecordingProblem.gif" width="200"></img>
 
 - 每帧图像在OCR之前，先识别该帧图像里最大的矩形框。如果这帧图像是滑动key的视频里的一帧，这个最大矩形框就一定是可滚动的key图这部分（下图红色虚线）。
 
@@ -100,3 +100,4 @@
 ## 致谢
 
 - [Detecting rectangle shape in an image](https://www.mathworks.com/matlabcentral/answers/35243-detecting-rectangle-shape-in-an-image)
+- [Matlab 读入txt 中文乱码](https://blog.csdn.net/ada444845016/article/details/9344817)
