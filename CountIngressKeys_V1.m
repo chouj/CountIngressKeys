@@ -85,7 +85,7 @@ for i=startf:endf
         knum=1; % the first key to be recognized and counted
         % figure;imshow(mov(i).cdata);
         bw=rgb2gray(mov(i).cdata); % colored image transferred to gray image
-        bw = bw >100; % brightness modification for rectangle area detection
+        bw = bw >110; % brightness modification for rectangle area detection
         stats = regionprops(not(bw)); % rectangle area detection
         for j=1:length(stats);area(j)=stats(j).Area;end
         [sortedarea,si]=sort(area); % find the second largest rectangle area
@@ -308,7 +308,7 @@ for i=startf:endf
         clear bw stats sortedarea si keypage top txt keynumtxt kuynumcell btm area test colorkeypage keynumcell
         
         bw=rgb2gray(mov(i).cdata);
-        bw = bw >100;
+        bw = bw >110;
         stats = regionprops(not(bw));
         if length(stats)>=50 % the number of recognized rectangle should be larger than 50
             for j=1:length(stats);area(j)=stats(j).Area;end
@@ -726,42 +726,42 @@ end
 for i=1:length(portalname)
     portalname{i} = strrep(portalname{i}, ' ', '');
     portalname{i} = strrep(portalname{i}, '\', '');
-    portalname{i} = strrep(portalname{i}, '®F', '');
-    portalname{i} = strrep(portalname{i}, '©Ö', '');
+    portalname{i} = strrep(portalname{i}, '‚Äµ', '');
+    portalname{i} = strrep(portalname{i}, 'Ôπ®', '');
     portalname{i} = strrep(portalname{i}, '_', '');
     portalname{i} = strrep(portalname{i}, '?', '');
-    portalname{i} = strrep(portalname{i}, '°ø', '');
-    portalname{i} = strrep(portalname{i}, 'Ï‰', '');
+    portalname{i} = strrep(portalname{i}, '„Äë', '');
+    portalname{i} = strrep(portalname{i}, 'ÁÜπ', '');
     portalname{i} = strrep(portalname{i}, '|', '');
     portalname{i} = strrep(portalname{i}, '`', '');
-    portalname{i} = strrep(portalname{i}, '°¨', '');
-    portalname{i} = strrep(portalname{i}, '®E', '');
-    portalname{i} = strrep(portalname{i}, '©q', '');
-    portalname{i} = strrep(portalname{i}, '°≠', '');
-    portalname{i} = strrep(portalname{i}, '°Æ', '');
+    portalname{i} = strrep(portalname{i}, '‚Äñ', '');
+    portalname{i} = strrep(portalname{i}, '‚Ä•', '');
+    portalname{i} = strrep(portalname{i}, 'Ôπí', '');
+    portalname{i} = strrep(portalname{i}, '‚Ä¶', '');
+    portalname{i} = strrep(portalname{i}, '‚Äò', '');
     portalname{i} = strrep(portalname{i}, '.', '');
-    portalname{i} = strrep(portalname{i}, '©y', '');
+    portalname{i} = strrep(portalname{i}, 'Ôπú', '');
     portalname{i} = strrep(portalname{i}, '{', '');
     portalname{i} = strrep(portalname{i}, '}', '');
     portalname{i} = strrep(portalname{i}, '-', '');
     portalname{i} = strrep(portalname{i}, '[', '');
     portalname{i} = strrep(portalname{i}, ']', '');
-    portalname{i} = strrep(portalname{i}, '°æ', '');
+    portalname{i} = strrep(portalname{i}, '„Äê', '');
     portalname{i} = strrep(portalname{i}, '(', '');
-    portalname{i} = strrep(portalname{i}, '°≤', '');
-    portalname{i} = strrep(portalname{i}, '°≥', '');
+    portalname{i} = strrep(portalname{i}, '„Äî', '');
+    portalname{i} = strrep(portalname{i}, '„Äï', '');
     portalname{i} = strrep(portalname{i}, ')', '');
-    portalname{i} = strrep(portalname{i}, '£®', '');
-    portalname{i} = strrep(portalname{i}, '£©', '');
-    portalname{i} = strrep(portalname{i}, '°Ω', '');
-    portalname{i} = strrep(portalname{i}, '®A', '');
+    portalname{i} = strrep(portalname{i}, 'Ôºà', '');
+    portalname{i} = strrep(portalname{i}, 'Ôºâ', '');
+    portalname{i} = strrep(portalname{i}, '„Äó', '');
+    portalname{i} = strrep(portalname{i}, 'Àã', '');
     portalname{i} = strrep(portalname{i}, ',', '');
-    portalname{i} = strrep(portalname{i}, '£¨', '');
+    portalname{i} = strrep(portalname{i}, 'Ôºå', '');
     portalname{i} = strrep(portalname{i}, '!', '');
-    portalname{i} = strrep(portalname{i}, '£°', '');
-    portalname{i} = strrep(portalname{i}, '£ø', '');
+    portalname{i} = strrep(portalname{i}, 'ÔºÅ', '');
+    portalname{i} = strrep(portalname{i}, 'Ôºü', '');
     portalname{i} = strrep(portalname{i}, '?', '');
-    portalname{i} = strrep(portalname{i}, 'Î‰', '‘∫');
+    portalname{i} = strrep(portalname{i}, 'ËÑò', 'Èô¢');
     
 end
 
