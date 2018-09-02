@@ -6,7 +6,7 @@
 
 本咸鱼的特长就是乱放key，且懒得打理，所以经常出现以下尴尬局面：
 
-- 卧槽，这桶里咋没有？！难道是下个桶？卧槽，怎么也没有？！
+- 咦？link不上？翻桶。卧槽，这桶里咋没有？！难道是下个桶？卧槽，怎么也没有？！
 - 卧槽，我怎么囤了这么多这个坡的key？！
 - 这是最后一把，……了……吗？
 
@@ -56,7 +56,7 @@
 
 <img src="https://github.com/chouj/CountIngressKeys/blob/master/images/rectangledetected.jpg" width="200"></img>
 
-- 而且，该矩形框的高宽比浮动不大（下图），所以可根据这个矩形框的高宽比判断是不是key图。可以先运行一下```r=RectAspectRatio(文件路径);```输出高宽比的序列来看一下key图对应的高宽比大致为多少，然后在脚本```CountIngressKeys_V1.m```参数区域里填入上限和下限。从下图可以看出，桶界面和翻桶时所识别出来的最大矩形高宽比和桶里key图的高宽比差很远，这也是为什么从一个桶翻key切换另一个桶的过程可以被排除。不过，问题来了，不同手机这个高宽比是不一样的。脚本里预设了iPhone 6和Moto G 2nd Gen的。欢迎补充。
+- 而且，该矩形框的高宽比浮动不大（下图），所以可根据这个矩形框的高宽比判断是不是key图。可以先运行一下```r=RectAspectRatio(文件路径);```输出高宽比的序列来看一下key图对应的高宽比大致为多少，然后在脚本```CountIngressKeys_V1.m```参数区域里填入上限和下限。从下图可以看出，桶界面和翻桶时所识别出来的最大矩形高宽比和桶里key图的高宽比差很远，这也是为什么从一个桶翻key切换另一个桶的过程可以被排除。不过，问题来了，不同手机这个高宽比是不一样的。脚本里预设了iPhone 6和Moto G 2nd Gen的（我们没有钱.jpg）。欢迎补充。
 
 <img src="https://github.com/chouj/CountIngressKeys/blob/master/images/aspectratio-vs-frame.jpg" width="600"></img>
 
@@ -90,14 +90,20 @@
 
 - 每个城市里都有好多个“小象”、“石狮”这种同名坡，脚本会把他们全加起来。理论上可以把坡名识别区域扩大到坡名及其下面一行的地址识别，这样就多一个判据可以对同名坡加以区分，但我懒癌直犯。。直犯。。
 - 翻key录屏不要来回往复翻。
+- 玄学属性爆棚。
 
 ## 后记
 
-放出这个用吃奶的劲儿编出来的0.2成品就是期待能被技术大佬打脸。
+- 放出这个用吃奶的劲儿编出来的0.2成品就是期待能被技术大佬打脸。
+- 神马？你说数得对不对？不管你信不信，我反正是信了！
+- 其他脑洞：桶里的数一遍，Inventory里的数一遍，两边一match，看看有哪些key该从桶里搬出来link用了。嗯。这个。再说吧。
 
-神马？你说数得对不对？不管你信不信，我反正是信了！
 
 ## 致谢
 
 - [Detecting rectangle shape in an image](https://www.mathworks.com/matlabcentral/answers/35243-detecting-rectangle-shape-in-an-image)
 - [Matlab 读入txt 中文乱码](https://blog.csdn.net/ada444845016/article/details/9344817)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/Mesoscale)
+[![Donate](https://img.shields.io/badge/Donate-WeChat-brightgreen.svg)](https://github.com/chouj/donate-page/blob/master/simple/images/WeChatQR.jpg?raw=true)
+[![Donate](https://img.shields.io/badge/Donate-AliPay-blue.svg)](https://github.com/chouj/donate-page/blob/master/simple/images/AlipayQR.jpg?raw=true)
